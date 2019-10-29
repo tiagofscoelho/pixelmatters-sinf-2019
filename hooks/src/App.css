@@ -1,0 +1,87 @@
+html {
+  min-width: 100%;
+  min-height: 100%;  
+  background-color: #21D4FD;
+  background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);        
+}
+
+.todo-list {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.todo-list .todo-list__input {
+  min-width: 600px;
+  padding: 20px;;
+  font-size: 28px;
+  color: #3b3b3b;
+  background: transparent;
+  outline: none;
+  border: 2px solid white;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .3);
+  font-weight: bold;
+}
+
+.todo-list .todo-list__input:focus {
+  box-shadow: 0px 0px 32px 1px #dedede;
+  background: rgba(255, 255, 255, .5);
+}
+
+.todo-list .todo-list__todos {
+  margin-top: 60px;
+  text-align: left;
+}
+
+.todo-list .todo-list__todos .todo {
+  max-width: 600px;
+  margin: 24px auto;
+  font-size: 24px;
+  color: white;
+  border: 1px solid white;
+  padding: 20px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.todo-list .todo-list__todos .todo .todo__actions {
+  margin-top: -5px;
+  font-size: 24px;
+  color: white;
+  float: right;
+}
+
+.button {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #dcdfe6;
+  color: #606266;
+  text-align: center;
+  outline: none;
+  margin: 0;
+  transition: .1s;
+  font-weight: 500;
+  padding: 12px 20px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.button.button--success {
+  color: #fff;
+  background-color: #67c23a;
+  border-color: #67c23a;
+}
+
+.button.button--danger {
+  color: #fff;
+  background-color: #f56c6c;
+  border-color: #f56c6c;
+  font-weight: bold;
+}
+
+.button + .button {
+  margin-left: 8px;
+}
