@@ -75,6 +75,12 @@ html {
   border-color: #67c23a;
 }
 
+.button.button--warning {
+  color: #fff;
+  background-color: #e6a23c;
+  border-color: #e6a23c;
+}
+
 .button.button--danger {
   color: #fff;
   background-color: #f56c6c;

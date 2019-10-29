@@ -11,7 +11,7 @@ export default () =>  {
 	
 					<div className="todo__actions"> 
 						<button 
-							className="button button--success"
+							className={`button ${todo.isCompleted ? 'button--warning' : 'button--success'} `}
 							onClick={() => dispatchTodos({ type: todo.isCompleted ? 'undone' : 'done', index })}> 
 							{ todo.isCompleted ? 'Undone' : 'Done' } 
 						</button>
