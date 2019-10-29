@@ -12,12 +12,12 @@ export default () =>  {
 					<div className="todo__actions"> 
 						<button 
 							className="button button--success"
-							onClick={() => dispatchTodos({type: todo.isCompleted ? 'undone' : 'done', index})}> 
+							onClick={() => dispatchTodos({ type: todo.isCompleted ? 'undone' : 'done', index })}> 
 							{ todo.isCompleted ? 'Undone' : 'Done' } 
 						</button>
 						<button 
 							className="button button--danger"
-							onClick={() => dispatchTodos({type: 'remove', index})}>
+							onClick={() => dispatchTodos({ ype: 'remove', index })}>
 							ⓧ
 						</button>
 					</div>
@@ -26,21 +26,18 @@ export default () =>  {
 		}
 
 		const todosReducer = (todos, action) => {
-			let newTodos = todos
+			let newTodos = [...todos]
 			switch (action.type) {
 				case 'add':
-					newTodos = [...todos, { text: action.text, isCompleted: false }];
+					newTodos.push({ text: action.text, isCompleted: false })
 					break
 				case 'done':
-					newTodos = [...todos];
 					newTodos[action.index].isCompleted = true;
 					break
 				case 'undone':
-					newTodos = [...todos];
 					newTodos[action.index].isCompleted = false;
 					break
 				case 'remove':
-					newTodos = [...todos];
 					newTodos.splice(action.index, 1);
 					break
 				default:
@@ -54,20 +51,20 @@ export default () =>  {
 			const [inputValue, setInputValue] = useState('');
   		const [todos, dispatchTodos] = useReducer(todosReducer, []);
 
-			const onFormKeyPress = event => {
-				const ENTER_KEY_CODE = 13
-				if (event && event.which === ENTER_KEY_CODE) {
-					if (inputValue) {
-						dispatchTodos({type: 'add', text: inputValue});
-						setInputValue('');
-					}
-				}
-			}
-
 	    useEffect(() => {
 				const countUncompleted = () => todos.filter(todo => !todo.isCompleted)
 	      document.title = `Todos: ${countUncompleted().length} (${todos.length})`
 	    }, [todos])
+
+			const onFormKeyPress = event => {
+				const ENTER_KEY_CODE = 13
+				if (event && event.which === ENTER_KEY_CODE) {
+					if (inputValue) {
+						dispatchTodos({ type: 'add', text: inputValue });
+						setInputValue('');
+					}
+				}
+			}
 
 			return (
 				<div className="todo-list">
@@ -76,8 +73,8 @@ export default () =>  {
 						className="todo-list__input"
 						placeholder="Add new todo"
 						value={inputValue}
-						onChange={e => setInputValue(e.target.value)}
-						onKeyPress={e => onFormKeyPress(e)}
+						onChange={event => setInputValue(event.target.value)}
+						onKeyPress={event => onFormKeyPress(event)}
 					/>
 					<div className="todo-list__todos">
 						{todos.map((todo, index) => (
@@ -94,8 +91,6 @@ export default () =>  {
 		}
 
     return (
-      <>
-        <TodoList />
-      </>
+       <TodoList />
     )
 }
