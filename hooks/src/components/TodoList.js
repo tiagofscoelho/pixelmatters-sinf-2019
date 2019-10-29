@@ -17,7 +17,7 @@ export default () =>  {
 						</button>
 						<button 
 							className="button button--danger"
-							onClick={() => dispatchTodos({ ype: 'remove', index })}>
+							onClick={() => dispatchTodos({ type: 'remove', index })}>
 							ⓧ
 						</button>
 					</div>
